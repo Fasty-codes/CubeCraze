@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signup.css">
+    <title>SignUp | CubeCraze</title>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        <form id="signUpForm" >
+            <h1>Create an Account</h1>
+            <div class="box">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="box">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="box">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            </div>
+            <input type="submit" value="Submit" class="signup-btn" onclick="signup()"/>
+            <p>Already have an Account? <a href="login.html">Login</a></p>
+            <p id="message"></p>
+        </form>
+    </div>
+
+    <script src="js/signup.js"></script>
+
+</body>
+
+</html>
