@@ -11,8 +11,8 @@ html {
     scroll-behavior: smooth;
 }
 
-.home {
-    background: url('../images/Rubiks-cube-1.jpg');
+.body {
+    background: url('../images/Rubiks-cube-8.jpg');
     height: 100vh;
     width: auto;
     background-position: center;
@@ -105,7 +105,7 @@ html {
     padding-right: 20px;
 }
 
-.home .btn-box .logout {
+.body .btn-box .logout {
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
@@ -183,99 +183,51 @@ html {
     background: #000;
 }
 
-.home .body {
-    color: #fff;
-    padding-top: 12%;
+.body main {
+    display: grid;
 }
 
-.home .body h2 {
+.body main h1 {
     text-align: center;
-    font-size: 35px;
+    font-size: 60px;
+    padding-top: 15%;
+    color: #02f20e;
 }
 
-.home .body h2 span {
-    color: rgb(14, 255, 14);
-}
-
-.home .body h4 {
+.body main h6 {
     text-align: center;
-    font-size: 25px;
-    padding-top: 10px;
-}
-
-.home .body h6 {
-    text-align: center;
+    padding-left: 90px;
+    padding-right: 90px;
     font-size: 20px;
-    padding-top: 15px;
-}
-
-.home h2.join {
-    text-align: center;
-    font-size: 18px;
-    padding-top: 40px;
-}
-
-.home h2.join a {
-    text-decoration: none;
+    padding-top: 30px;
     color: #fff;
 }
 
-.about-cubing {
-    background: #dcdcdc;
+.about-us {
     height: 100vh;
-    width: 100%;
+    background: url('../images/Rubiks-cube-7.jpg');
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.about-cubing .title {
+.about-us h1{
     text-align: center;
-    padding-top: 30px;
-    font-size: 30px;
-}
-
-.about-cubing .gallery {
-    display: flex;
-    align-items: center;
-    padding-left: 250px;
-    padding-top: 40px;
-}
-
-.gallery img {
-    width: 260px;
-    height: 160px;
-    border-radius: 25px;
-    margin-right: 30px;
-    border: 2px solid #fff;
-    transition: 0.4s ease;
-}
-
-.gallery img:hover {
-    width: 270px;
-    height: 170px;
-    border: 1px solid #fff;
-}
-
-.about-cubing .details {
-    display: flex;
-    align-items: center;
-    padding-left: 70px;
     padding-top: 50px;
+    font-size: 45px;
+    color: #fff;
 }
 
-.about-cubing .details details {
-    margin-right: 40px;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding-top: 10px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-bottom: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.about-cubing .details details summary {
-    font-size: 17px;
-    font-weight: 400;
+.about-us p{
+    font-size: 20px;
+    color: #fff;
+    line-height: 2;
+    letter-spacing: 1.5;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 9%;
+    font-weight: 800;
 }
 
 .footer {
@@ -368,7 +320,7 @@ html {
     outline: none;
 }
 
-.footer form input::placeholder{
+.footer form input::placeholder {
     color: #fff;
 }
 
@@ -434,7 +386,7 @@ hr {
 }
 
 @media (max-width:700px) {
-    .header{
+    .header {
         width: 100%;
         height: auto;
     }
@@ -493,21 +445,9 @@ hr {
         transition-delay: calc(.15s * var(--i));
     }
 
-    .about-cubing {
+    .about-us{
         height: 100%;
-    }
-
-    .about-cubing .gallery{
-        flex-direction: column;
-        padding-left: 0%;
-    }
-
-    .about-cubing .details{
-        flex-direction: column;
-    }
-
-    .about-cubing .details details{
-        margin-bottom: 50px;
+        padding-bottom: 30px;
     }
 
     footer {
