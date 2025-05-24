@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.home {
+    background-image: url('../images/Rubiks-cube-9.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(40px);
+    padding-top: 10px;
+    padding-bottom: 15px;
+    list-style: none;
+    color: #fff;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.logo-img {
+    width: 100px;
+}
+
+.logo-img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.logo-text {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(0, 255, 0);
+}
+
+.navbar {
+    font-size: 15px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar ul li a {
+    padding-right: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+}
+
+.navbar ul li a:hover {
+    color: #e7ffc7;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.header .navbar a {
+    font-size: 1.15rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+}
+
+.icons {
+    font-size: 2.8rem;
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    float: left;
+    top: 90%;
+    background: #1c1c1c;
+    border-radius: 7px;
+}
+
+#check {
+    display: none;
+}
+
+.btn-box {
+    padding-right: 20px;
+}
+
+.home .btn-box .logout {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    border: 1px solid #000;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-box .logout span {
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-box .logout span:hover {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.btn-box .logout:hover {
+    background: #000;
+}
+
+.btn-box .signin {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    border: 1px solid #000;
+    background: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-box .signup {
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    border: 1px solid #000;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-box a {
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-box a:hover {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.btn-box .signin:hover {
+    background: #000;
+}
+
+.btn-box .signup:hover {
+    background: #000;
+}
+
+.search-bar{
+    background-image: url('../images/Rubiks-cube-10.jpg');
+    border-radius: 20px;
+    margin: 40px;
+    height: 40vh;
+    width: auto;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar .title{
+    color: #fff;
+    font-size: 40px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 320px;
+    margin-bottom: 30px;
+}
+
+.search-wrapper input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-wrapper input[type="text"]:focus {
+    border-color: rgb(61, 255, 47);
+}
+
+.icon-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(120deg, #00ff88, #004918, #00ff88);
+    background-size: 200% auto;
+    animation: gradientMove 3s linear infinite;
+    transition: background-position 0.3s ease;
+}
+
+.icon-btn:hover {
+    animation: none;
+    background-position: center;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    z-index: 100;
+    display: none;
+}
+
+.dropdown.active {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: royalblue;
+    color: white;
+}
+
+/* Cube cards container */
+.cube-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+
+.cube-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    width: 150px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    color: royalblue;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.cube-card:hover {
+    box-shadow: 0 6px 15px rgb(0 0 0 / 0.2);
+}
+
+.footer {
+    background: linear-gradient(to right, #327061, #048a0b);
+    bottom: 0;
+    font-weight: 500;
+    width: 100%;
+    color: #fff;
+    padding: 100px 0 30px;
+    font-size: 13px;
+}
+
+.footer .row {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.footer .col {
+    flex-basis: 25%;
+    padding: 10px;
+}
+
+.footer .col:nth-child(2),
+.footer .col:nth-child(3) {
+    flex-basis: 15%;
+}
+
+.footer .col .logo {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.footer .row .col p a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer .row .col p a:hover {
+    text-decoration: underline;
+}
+
+.footer .col h3 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.footer .col .speedcubing {
+    width: fit-content;
+    margin: 20px 0;
+}
+
+.footer .col ul li {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.footer .col ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer .col ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+.footer form i#mail {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.footer form input {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+.footer form input::placeholder {
+    color: #fff;
+}
+
+.footer form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.footer form button i#arrow {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.footer .col .social-icons .bx {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.footer .col .social-icons i#facebook:hover {
+    background: #1877f2;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.footer .col .social-icons i#youtube:hover {
+    background: #ff0000;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.footer .col .social-icons i#insta:hover {
+    background: linear-gradient(to top, #feda57, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.footer .col .social-icons i#twitter:hover {
+    background: #1da1f2;
+    transform: scale(1.05);
+    color: #fff;
+}
+
+hr {
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+.copyright {
+    text-align: center;
+}
+
+@media (max-width:700px) {
+    .header {
+        width: 100%;
+        height: auto;
+    }
+
+    .icons {
+        display: inline-flex;
+        color: #fff;
+    }
+
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+
+    .icons #close-icon {
+        display: none;
+    }
+
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 135%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgb(62, 62, 62);
+        overflow: hidden;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar {
+        height: 20rem;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: .1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: .3s ease;
+    }
+
+    #check:checked~.navbar a {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+
+    .search-wrapper input{
+        width: auto;
+    }
+
+    footer {
+        bottom: unset;
+    }
+
+    .footer .col {
+        flex-basis: 100%;
+    }
+
+    .footer .col:nth-child(2),
+    .col:nth-child(3) {
+        flex-basis: 100%;
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
