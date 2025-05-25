@@ -3,9 +3,10 @@ const cubes = [
     { name: '3x3 Cube', link: '#3x3' },
     { name: '4x4 Cube', link: '#4x4' },
     { name: 'Pyraminx', link: '#pyraminx' },
-    { name: 'Megaminx', link: '#megaminx' },
-    { name: 'Skewb', link: '#skewb' },
-    { name: 'Square-1', link: '#square1' }
+    { name: 'Roux Method', link: '#megaminx' },
+    { name: 'CFOP Method', link: '#skewb' },
+    { name: 'Reduction Method', link: '#skewb' },
+    { name: 'Cube Patterns', link: '#square1' }
 ];
 
 const searchInput = document.getElementById('searchInput');

@@ -186,10 +186,36 @@ body {
     background: #000;
 }
 
-.search-bar{
+.home .body {
+    color: #fff;
+    padding-top: 160px;
+}
+
+.home .body h1 {
+    text-align: center;
+    font-size: 50px;
+    padding-bottom: 10px;
+    color: #00ff88;
+}
+
+.home .body h6 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.class-sects {
+    height: 100%;
+    background-color: #dbdbdb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-bar {
     background-image: url('../images/Rubiks-cube-10.jpg');
     border-radius: 20px;
-    margin: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
     height: 40vh;
     width: auto;
     background-position: center;
@@ -199,7 +225,7 @@ body {
     align-items: center;
 }
 
-.search-bar .title{
+.search-bar .title {
     color: #fff;
     font-size: 40px;
     padding-top: 40px;
@@ -284,34 +310,100 @@ body {
     color: white;
 }
 
-/* Cube cards container */
-.cube-cards {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 700px;
+article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
 }
 
-.cube-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
-    width: 150px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-    color: royalblue;
+article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
     cursor: pointer;
-    user-select: none;
-    transition: box-shadow 0.3s ease;
-    text-align: center;
+    content: "";
 }
 
-.cube-card:hover {
-    box-shadow: 0 6px 15px rgb(0 0 0 / 0.2);
+article h2 {
+    margin: 0 0 18px 0;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+}
+
+.article-body {
+    padding: 24px;
+}
+
+article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #46b015;
+}
+
+article a:focus {
+    outline: 1px dotted #46b015;
+}
+
+article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+}
+
+article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #46b015;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .footer {
@@ -529,8 +621,16 @@ hr {
         transition-delay: calc(.15s * var(--i));
     }
 
-    .search-wrapper input{
+    .search-wrapper input {
         width: auto;
+    }
+
+    article {
+        container: card/inline-size;
+    }
+
+    .article-body p {
+        display: block;
     }
 
     footer {
@@ -547,11 +647,36 @@ hr {
     }
 }
 
+@container card (min-width: 380px) {
+    .article-wrapper {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+    }
+
+    .article-body {
+        padding-left: 0;
+    }
+
+    figure {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    figure img {
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+}
+
 @keyframes gradientMove {
     0% {
-      background-position: 0% center;
+        background-position: 0% center;
     }
+
     100% {
-      background-position: 200% center;
+        background-position: 200% center;
     }
-  }
+}
