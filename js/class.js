@@ -88,13 +88,6 @@ searchIcon.addEventListener('click', () => {
     }
 });
 
-// Clicking cube cards navigates to their links
-cubeCards.querySelectorAll('.cube-card').forEach(card => {
-    card.addEventListener('click', () => {
-        window.location.href = card.getAttribute('data-link');
-    });
-});
-
 window.addEventListener('DOMContentLoaded', () => {
     const loggedInUser = localStorage.getItem("loggedInUser");
 
