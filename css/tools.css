@@ -11,16 +11,13 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    scroll-behavior: smooth;
-}
-
 .home {
-    background-image: url('../images/Rubiks-cube-9.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: url('../images/3x3-rubiks-cube.jpg');
     height: 100vh;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header {
@@ -186,132 +183,37 @@ body {
     background: #000;
 }
 
-.home .body {
-    color: #fff;
-    padding-top: 160px;
-}
-
-.home .body h1 {
+.body h1 {
     text-align: center;
-    font-size: 50px;
-    padding-bottom: 10px;
+    font-size: 60px;
+    padding-top: 15%;
     color: #fff;
 }
 
-.body h1 span{
+.body h1 span {
     color: #02f20e;
 }
 
-.home .body h6 {
+.body h6 {
     text-align: center;
-    font-size: 30px;
-}
-
-.class-sects {
-    height: 100%;
-    background-color: #dbdbdb;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.search-bar {
-    background-image: url('../images/Rubiks-cube-10.jpg');
-    border-radius: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-bottom: 40px;
-    height: 40vh;
-    width: auto;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.search-bar .title {
-    color: #fff;
-    font-size: 40px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-
-.search-wrapper {
-    position: relative;
-    width: 320px;
-    margin-bottom: 30px;
-}
-
-.search-wrapper input[type="text"] {
-    width: 100%;
-    padding: 10px 40px 10px 15px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 25px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.search-wrapper input[type="text"]:focus {
-    border-color: rgb(61, 255, 47);
-}
-
-.icon-btn {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+    padding-left: 90px;
+    padding-right: 90px;
     font-size: 20px;
-    user-select: none;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(120deg, #00ff88, #004918, #00ff88);
-    background-size: 200% auto;
-    animation: gradientMove 3s linear infinite;
-    transition: background-position 0.3s ease;
+    padding-top: 30px;
+    color: #fff;
 }
 
-.icon-btn:hover {
-    animation: none;
-    background-position: center;
+.tools {
+    height: 100%;
+    background-color: #dedede;
 }
 
-/* Dropdown styles */
-.dropdown {
-    position: absolute;
-    top: 105%;
-    left: 0;
-    right: 0;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    max-height: 180px;
-    overflow-y: auto;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-    z-index: 100;
-    display: none;
-}
-
-.dropdown.active {
-    display: block;
-}
-
-.dropdown-item {
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 15px;
-    color: #333;
-    border-bottom: 1px solid #eee;
-}
-
-.dropdown-item:last-child {
-    border-bottom: none;
-}
-
-.dropdown-item:hover {
-    background: royalblue;
-    color: white;
+.tools .title {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-size: 45px;
+    color: #535353;
 }
 
 article {
@@ -625,10 +527,6 @@ hr {
         transition-delay: calc(.15s * var(--i));
     }
 
-    .search-wrapper input {
-        width: auto;
-    }
-
     article {
         container: card/inline-size;
     }
@@ -672,15 +570,5 @@ hr {
         height: 100%;
         aspect-ratio: 1;
         object-fit: cover;
-    }
-}
-
-@keyframes gradientMove {
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 200% center;
     }
 }

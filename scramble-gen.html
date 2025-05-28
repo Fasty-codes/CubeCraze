@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scramble Generator | CubeCraze</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            margin: 0;
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #00bcd4;
+        }
+
+        .scramble-box {
+            background: #222;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-size: 1.2rem;
+            text-align: center;
+            min-height: 2em;
+        }
+
+        button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background: #00bcd4;
+            border: none;
+            color: #000;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0097a7;
+        }
+
+        .back{
+            margin-top: 70px;
+        }
+
+        .back a{
+            text-decoration: none;
+            color: #111;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>2x2 Scramble</h2>
+    <div class="scramble-box" id="scramble2x2">Click the button below</div>
+    <button onclick="generateScramble('2x2')">Generate 2x2 Scramble</button>
+
+    <h2>3x3 Scramble</h2>
+    <div class="scramble-box" id="scramble3x3">Click the button below</div>
+    <button onclick="generateScramble('3x3')">Generate 3x3 Scramble</button>
+
+    <h2>4x4 Scramble</h2>
+    <div class="scramble-box" id="scramble4x4">Click the button below</div>
+    <button onclick="generateScramble('4x4')">Generate 4x4 Scramble</button>
+
+    <h2>Pyraminx Scramble</h2>
+    <div class="scramble-box" id="scramblePyraminx">Click the button below</div>
+    <button onclick="generateScramble('pyraminx')">Generate Pyraminx Scramble</button>
+
+    <button class="back">
+        <a href="tools.html">Go Back</a>
+    </button>
+
+    <script>
+        function generateScramble(puzzle) {
+            let moves = [];
+            let scrambleLength = 0;
+
+            switch (puzzle) {
+                case '2x2':
+                    moves = ['R', 'U', 'F'];
+                    scrambleLength = 11;
+                    break;
+                case '3x3':
+                    moves = ['R', 'L', 'U', 'D', 'F', 'B', 'r', 'l', 'u', 'd', 'f', 'b'];
+                    scrambleLength = 20;
+                    break;
+                case '4x4':
+                    moves = ['R', 'L', 'U', 'D', 'F', 'B', 'Rw', 'Lw', 'Uw', 'Dw', 'Fw', 'Bw'];
+                    scrambleLength = 40;
+                    break;
+                case 'pyraminx':
+                    moves = ['U', 'L', 'R', 'B', 'u', 'l', 'r', 'b'];
+                    scrambleLength = 11;
+                    break;
+                default:
+                    return;
+            }
+
+            const modifiers = ['', "'", '2'];
+            let scramble = [];
+            let prevMove = '';
+
+            for (let i = 0; i < scrambleLength; i++) {
+                let move;
+                do {
+                    move = moves[Math.floor(Math.random() * moves.length)];
+                } while (move[0] === prevMove[0]); // avoid repeating same face
+                const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+                scramble.push(move + modifier);
+                prevMove = move;
+            }
+
+            document.getElementById('scramble' + puzzle.charAt(0).toUpperCase() + puzzle.slice(1)).textContent = scramble.join(' ');
+        }
+    </script>
+
+</body>
+
+</html>

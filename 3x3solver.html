@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rubik's Cube Solver - 2D Net</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .cube-net {
+      display: grid;
+      grid-template-columns: repeat(12, 30px);
+      grid-template-rows: repeat(9, 30px);
+      gap: 2px;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .sticker {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      cursor: pointer;
+      background: #ddd;
+    }
+
+    .control-panel {
+      margin-top: 20px;
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .color-box {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+      border: 2px solid #444;
+      cursor: pointer;
+    }
+
+    .selected {
+      border: 3px solid black !important;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rubik's Cube Solver (Grubiks-style)</h1>
+
+  <div class="cube-net" id="cube-net"></div>
+
+  <div class="control-panel">
+    <div class="color-palette" id="color-palette"></div>
+    <div class="buttons">
+      <button onclick="clearStickers()">Clear</button>
+      <button onclick="validateCube()">Solve</button>
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const colorCodes = {
+      W: "#ffffff",
+      R: "#ff0000",
+      B: "#0000ff",
+      O: "#ffa500",
+      G: "#00ff00",
+      Y: "#ffff00",
+    };
+
+    const faceOrder = ["U", "L", "F", "R", "B", "D"];
+    const centerColors = ["W", "O", "G", "R", "B", "Y"];
+    const netMap = [
+      { face: "U", row: 0, col: 3 },
+      { face: "L", row: 3, col: 0 },
+      { face: "F", row: 3, col: 3 },
+      { face: "R", row: 3, col: 6 },
+      { face: "B", row: 3, col: 9 },
+      { face: "D", row: 6, col: 3 },
+    ];
+
+    let selectedColor = "W";
+    const stickers = {};
+
+    function initCubeNet() {
+      const net = document.getElementById("cube-net");
+      for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 12; j++) {
+          const div = document.createElement("div");
+          div.dataset.row = i;
+          div.dataset.col = j;
+          div.className = "sticker";
+          div.style.visibility = "hidden";
+          net.appendChild(div);
+        }
+      }
+
+      // Draw net
+      for (const { face, row, col } of netMap) {
+        stickers[face] = [];
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            const index = (row + i) * 12 + (col + j);
+            const sticker = net.children[index];
+            sticker.style.visibility = "visible";
+            sticker.dataset.face = face;
+            sticker.dataset.index = stickers[face].length;
+            sticker.addEventListener("click", () => {
+              sticker.style.background = colorCodes[selectedColor];
+              sticker.dataset.color = selectedColor;
+            });
+            stickers[face].push(sticker);
+          }
+        }
+      }
+    }
+
+    function initColorPalette() {
+      const palette = document.getElementById("color-palette");
+      for (const [code, hex] of Object.entries(colorCodes)) {
+        const div = document.createElement("div");
+        div.className = "color-box";
+        div.style.background = hex;
+        div.dataset.color = code;
+        div.addEventListener("click", () => {
+          selectedColor = code;
+          document
+            .querySelectorAll(".color-box")
+            .forEach((el) => el.classList.remove("selected"));
+          div.classList.add("selected");
+        });
+        if (code === "W") div.classList.add("selected");
+        palette.appendChild(div);
+      }
+    }
+
+    function clearStickers() {
+      for (const face of faceOrder) {
+        stickers[face].forEach((sticker, index) => {
+          sticker.style.background = "#ddd";
+          sticker.dataset.color = "";
+        });
+      }
+      document.getElementById("output").textContent = "";
+    }
+
+    function validateCube() {
+      const counts = { W: 0, R: 0, B: 0, O: 0, G: 0, Y: 0 };
+      let valid = true;
+
+      // Count color appearances
+      for (const face of faceOrder) {
+        for (const sticker of stickers[face]) {
+          const color = sticker.dataset.color;
+          if (!color) {
+            valid = false;
+            break;
+          }
+          if (!counts[color]) counts[color] = 0;
+          counts[color]++;
+        }
+      }
+
+      if (!valid) {
+        document.getElementById("output").textContent = "❗ Fill all stickers first!";
+        return;
+      }
+
+      const allNine = Object.values(counts).every((count) => count === 9);
+      if (!allNine) {
+        document.getElementById("output").textContent = "❗ Each color must appear exactly 9 times!";
+        return;
+      }
+
+      document.getElementById("output").textContent = "✅ Looks valid! You can now send this to a solver engine.";
+    }
+
+    initCubeNet();
+    initColorPalette();
+  </script>
+</body>
+</html>

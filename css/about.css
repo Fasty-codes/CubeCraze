@@ -191,6 +191,10 @@ html {
     text-align: center;
     font-size: 60px;
     padding-top: 15%;
+    color: #fff;
+}
+
+.body main h1 span{
     color: #02f20e;
 }
 

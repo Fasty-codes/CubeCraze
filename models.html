@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cube Models | CubeCraze</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+        * {
+            font-family: 'Quicksand', monospace;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding: 40px 0;
+            width: 100%;
+            align-items: center;
+        }
+
+        .scene {
+            width: 200px;
+            height: 200px;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            box-sizing: border-box;
+            border: 1px solid #222;
+        }
+
+        .square {
+            box-sizing: border-box;
+            border: 1px solid #222;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .face2 {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .face3 {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .face4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green;
+        }
+
+        .blue {
+            background: blue;
+        }
+
+        .orange {
+            background: orange;
+        }
+
+        .yellow {
+            background: yellow;
+        }
+
+        .white {
+            background: white;
+        }
+
+        .label {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 12px 24px;
+            margin: 5px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #00ffcc;
+            color: #000;
+            transition: 0.3s;
+            margin-bottom: 50px;
+        }
+
+        button:hover {
+            background-color: #00ddb8;
+        }
+
+        .back {
+            margin-top: 60px;
+        }
+
+        .back a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title" style="font-size: 50px; color: #fff; padding-top: 50px; padding-bottom: 80px;">Models</h1>
+
+    <div class="container">
+        <!-- 2x2 -->
+        <div>
+            <div class="scene" id="scene2x2">
+                <div class="cube" id="cube2x2"></div>
+            </div>
+            <div class="label">2x2 Cube</div>
+        </div>
+
+        <!-- 3x3 -->
+        <div>
+            <div class="scene" id="scene3x3">
+                <div class="cube" id="cube3x3"></div>
+            </div>
+            <div class="label">3x3 Cube</div>
+        </div>
+
+        <!-- 4x4 -->
+        <div>
+            <div class="scene" id="scene4x4">
+                <div class="cube" id="cube4x4"></div>
+            </div>
+            <div class="label">4x4 Cube</div>
+        </div>
+    </div>
+
+    <button class="back"><a href="tools.html">Go Back</a></button>
+
+    <script>
+        function setupCube(id, faceClass) {
+            const cube = document.getElementById(id);
+            const colors = ['red', 'orange', 'green', 'blue', 'yellow', 'white'];
+
+            for (let i = 0; i < 6; i++) {
+                const face = document.createElement('div');
+                face.className = `face ${faceClass} ${colors[i]}`;
+                face.style.transform = getFaceTransform(i);
+
+                const count = faceClass === 'face2' ? 4 : faceClass === 'face3' ? 9 : 16;
+                for (let j = 0; j < count; j++) {
+                    const square = document.createElement('div');
+                    square.className = 'square';
+                    face.appendChild(square);
+                }
+
+                cube.appendChild(face);
+            }
+
+            enableDrag(id);
+        }
+
+        function getFaceTransform(i) {
+            switch (i) {
+                case 0: return 'rotateY(0deg) translateZ(100px)';
+                case 1: return 'rotateY(180deg) translateZ(100px)';
+                case 2: return 'rotateY(90deg) translateZ(100px)';
+                case 3: return 'rotateY(-90deg) translateZ(100px)';
+                case 4: return 'rotateX(90deg) translateZ(100px)';
+                case 5: return 'rotateX(-90deg) translateZ(100px)';
+            }
+        }
+
+        function enableDrag(id) {
+            const cube = document.getElementById(id);
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let rotateX = -20;
+            let rotateY = -30;
+
+            cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            cube.parentElement.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+            });
+
+            document.addEventListener('mouseup', () => isDragging = false);
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                let dx = e.clientX - startX;
+                let dy = e.clientY - startY;
+                rotateY += dx * 0.5;
+                rotateX -= dy * 0.5;
+                cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                startX = e.clientX;
+                startY = e.clientY;
+            });
+        }
+
+        // Setup all cubes
+        setupCube('cube2x2', 'face2');
+        setupCube('cube3x3', 'face3');
+        setupCube('cube4x4', 'face4');
+    </script>
+</body>
+
+</html>

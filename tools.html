@@ -1,11 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/tools.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Tools | CubeCraze</title>
 </head>
+
 <body>
-    <a href="timer.html">Timer</a>
+
+    <section class="home">
+        <header class="header">
+            <div class="logo">
+                <h1 class="logo-img">
+                    <img src="images/Rubiks-cube-1.jpg" alt="Logo">
+                </h1>
+                <h1 class="logo-text">CubeCraze</h1>
+            </div>
+
+            <input type="checkbox" name="" id="check">
+
+            <label for="check" class="icons">
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <i class='bx bx-x' id="close-icon"></i>
+            </label>
+
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="class.html">Classes</a>
+                    </li>
+                    <li>
+                        <a href="tools.html">Tools</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="btn-box">
+                <button class="signin" type="button" id="loginbtn">
+                    <a href="login.html">Login</a>
+                </button>
+                <button class="signup" type="button" id="signupbtn">
+                    <a href="signup.html">SignUp</a>
+                </button>
+                <button id="logoutbtn" class="logout" style="display: none;"><span>Logout</span></button>
+            </div>
+        </header>
+
+        <div class="body">
+            <h1>Explore our <span>Tools</span></h1>
+            <h6>We have many types of tools for Cubing, Explore it...</h6>
+        </div>
+    </section>
+
+    <section class="tools">
+        <h1 class="title">Tools</h1>
+
+        <section class="articles">
+            <article>
+                <div class="article-wrapper">
+                    <figure>
+                        <img src="images/timer.webp" alt="timer" />
+                    </figure>
+                    <div class="article-body">
+                        <h2>Cube Timer</h2>
+                        <p>Cube timer is built for checking your time taking for solving a Rubik's Cube and It's built for you guys nicely 
+                            with pause and reset buttons.So try it for the next solving.</p>
+                        <a href="timer.html" class="read-more">
+                            Start Cube Timer <span class="sr-only">Timer</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            <article>
+
+                <div class="article-wrapper">
+                    <figure>
+                        <img src="images/scrambleed-cube.jpg" alt="scrambler" />
+                    </figure>
+                    <div class="article-body">
+                        <h2>Scramble Generator</h2>
+                        <p>This will generate you guys scramble on every types of Rubiks cube such as 2x2, 3x3, 4x4, & Pyraminx. So you guys dont 
+                            forget to checkout it on next solving with one of the scramble.
+                        </p>
+                        <a href="scramble-gen.html" class="read-more">
+                            Start Learning <span class="sr-only">3x3</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+            <article>
+
+                <div class="article-wrapper">
+                    <figure>
+                        <img src="images/model2.jpg" alt="model" />
+                    </figure>
+                    <div class="article-body">
+                        <h2> Cube Models</h2>
+                        <p>This tools show som Rubiks cueb models for you guys. It just for fun, It has no uses but you can see the models of the cubes without buying them also you can drag each cubes.</p>
+                        <a href="models.html" class="read-more">
+                            Start Learning <span class="sr-only">4x4</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+
+                <div class="article-wrapper">
+                    <figure>
+                        <img src="images/pyraminx-cube.jpg" alt="Pyraminx" />
+                    </figure>
+                    <div class="article-body">
+                        <h2>Pyraminx</h2>
+                        <p>The Pyraminx is a pyramid-shaped puzzle with 4 faces and rotating tips. It’s
+                            beginner-friendly and easier than it looks! Start by solving the tips and centers, then use
+                            simple moves
+                            to align the edges. A great intro to twisty puzzles and a fun way to boost your confidence
+                            in speedsolving!</p>
+                        <a href="#" class="read-more">
+                            Start Learning <span class="sr-only">Pyraminx</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col">
+                <h1 class="logo">CubeCraze</h1>
+                <p>Subscribe to our NewsLetter for the updates. And also Subscribe to our youtube channels <a
+                        href="https://youtube.com/@Dona_editz_2.0">
+                        Dona_editz 2.0</a>, <a href="https://youtube.com/@cuberA_2.0">Cuber A</a> for learning Rubiks
+                    cube in malayalam.</p>
+            </div>
+            <div class="col">
+                <h3>Learn</h3>
+                <p><a href="">2x2</a></p>
+                <p><a href="">3x3</a></p>
+                <p><a href="">4x4</a></p>
+                <p class="speedcubing"><a href="">SpeedCubing</a></p>
+                <p><a href="">Malayalam Tutorials</a></p>
+            </div>
+            <div class="col">
+                <h3>Links</h3>
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="class.html">Classes</a>
+                    </li>
+                    <li>
+                        <a href="tools.html">Tools</a>
+                    </li>
+                    <li>
+                        <a href="">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Newsletter</h3>
+                <form action="">
+                    <i class='bx bxs-envelope' id="mail"></i>
+                    <input type="email" placeholder="Enter your Email" required>
+                    <button type="submit"><i class='bx bx-right-arrow-alt' id="arrow"></i></button>
+                </form>
+                <div class="social-icons">
+                    <i class='bx bxl-facebook' id="facebook"></i>
+                    <i class='bx bxl-youtube' id="youtube"></i>
+                    <i class='bx bxl-instagram' id="insta"></i>
+                    <i class='bx bxl-twitter' id="twitter"></i>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">CubeCraze &copy; 2025 - All Rights Reserved</p>
+    </footer>
+
+    <script src="js/tools.js"></script>
 </body>
+
 </html>
