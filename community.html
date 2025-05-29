@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cube Community</title>
+  <link href="css/community.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="header">
+    <button id="registerBtn" onclick="showPopup('registerPopup')">Register</button>
+    <button id="logoutBtn" style="display:none;">Logout</button>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search users..." />
+      <i class='bx bx-search' id="searchIcon"></i>
+      <i class='bx bx-x' id="clearSearch" style="display:none;"></i>
+    </div>
+  </div>
+
+  <h1 class="title">CubeCraze Community</h1>
+
+  <div class="tabs">
+    <button data-cube="2x2">2x2</button>
+    <button data-cube="3x3">3x3</button>
+    <button data-cube="4x4">4x4</button>
+    <button data-cube="Pyraminx">Pyraminx</button>
+  </div>
+
+  <div id="recordList" class="leaderboard"></div>
+
+  <div class="upload-section">
+    <select id="cubeType">
+      <option value="2x2">2x2</option>
+      <option value="3x3">3x3</option>
+      <option value="4x4">4x4</option>
+      <option value="Pyraminx">Pyraminx</option>
+    </select>
+    <input type="number" id="recordInput" placeholder="Enter your record in seconds" />
+    <button id="uploadBtn">Upload</button>
+  </div>
+
+  <!-- Register Popup -->
+  <div class="popup" id="registerPopup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('registerPopup')">&times;</span>
+      <h2>Register</h2>
+      <input type="text" id="usernameInput" placeholder="Your name" />
+      <select id="regionInput">
+        <option>Asia</option>
+        <option>Europe</option>
+        <option>North America</option>
+        <option>South America</option>
+        <option>Africa</option>
+        <option>Oceania</option>
+      </select>
+      <div id="avatarSelect"></div>
+      <button onclick="registerUser()">Continue</button>
+    </div>
+  </div>
+
+  <!-- Real Record Popup -->
+  <div class="popup" id="realPopup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('realPopup')">&times;</span>
+      <h3>Is this a real record?</h3>
+      <button onclick="confirmRealRecord()">Yes</button>
+      <button onclick="closePopup('realPopup')">No</button>
+    </div>
+  </div>
+
+  <!-- Proof Upload Popup -->
+  <div class="popup" id="proofPopup">
+    <div class="popup-content">
+      <span class="close" onclick="closePopup('proofPopup')">&times;</span>
+      <h3>Attach proof (optional)</h3>
+      <input type="file" id="proofFile" />
+      <button onclick="finalizeUpload()">Upload Record</button>
+    </div>
+  </div>
+
+  <button class="back">
+    <a href="tools.html">Go Back</a>
+  </button>
+
+  <script src="js/community.js"></script>
+</body>
+</html>
