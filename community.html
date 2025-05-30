@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cube Community</title>
   <link href="css/community.css" rel="stylesheet" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
+
 <body>
   <div class="header">
     <button id="registerBtn" onclick="showPopup('registerPopup')">Register</button>
@@ -36,11 +38,10 @@
       <option value="4x4">4x4</option>
       <option value="Pyraminx">Pyraminx</option>
     </select>
-    <input type="number" id="recordInput" placeholder="Enter your record in seconds" />
+    <input type="tel" id="recordInput" placeholder="Enter your record in seconds" />
     <button id="uploadBtn">Upload</button>
   </div>
 
-  <!-- Register Popup -->
   <div class="popup" id="registerPopup">
     <div class="popup-content">
       <span class="close" onclick="closePopup('registerPopup')">&times;</span>
@@ -59,7 +60,6 @@
     </div>
   </div>
 
-  <!-- Real Record Popup -->
   <div class="popup" id="realPopup">
     <div class="popup-content">
       <span class="close" onclick="closePopup('realPopup')">&times;</span>
@@ -69,7 +69,6 @@
     </div>
   </div>
 
-  <!-- Proof Upload Popup -->
   <div class="popup" id="proofPopup">
     <div class="popup-content">
       <span class="close" onclick="closePopup('proofPopup')">&times;</span>
@@ -79,10 +78,21 @@
     </div>
   </div>
 
+  <div class="popup-overlay" id="deletePopup">
+    <div class="popup-box">
+      <p>Are you sure you want to delete this record?</p>
+      <div class="popup-actions">
+        <button id="confirmDeleteBtn">Yes</button>
+        <button onclick="closeDeletePopup()">No</button>
+      </div>
+    </div>
+  </div>
+
   <button class="back">
     <a href="tools.html">Go Back</a>
   </button>
 
   <script src="js/community.js"></script>
 </body>
+
 </html>
